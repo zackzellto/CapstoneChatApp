@@ -17,13 +17,7 @@ export function SignUpForm(props) {
     const submit = (e) => {
         e.preventDefault();
 
-        console.log({
-            firstName,
-            lastName,
-            email,
-            password,
-            confirmPassword
-        })
+        
     }
 
   return(
