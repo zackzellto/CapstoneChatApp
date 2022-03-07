@@ -26,6 +26,8 @@ namespace CapstoneChatApp
         {
             ChatUsers chatter = new ChatUsers()
             {
+
+                id = '1',
                 first_name = "New",
                 last_name = "User",
                 email = "newuser@email.com",
@@ -49,7 +51,7 @@ namespace CapstoneChatApp
         }
         public static void GetAllUsers()
         {
-            NHibernate.ISession session = NHibernateHelper.GetCurrentSession();
+            ISession session = NHibernateHelper.GetCurrentSession();
             try
             {
                 using (ITransaction tx = session.BeginTransaction())
