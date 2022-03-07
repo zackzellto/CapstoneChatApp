@@ -8,10 +8,16 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.22" />
+    <PackageReference Include="NHibernate" Version="5.3.11" />
+    <PackageReference Include="FluentNHibernate" Version="3.1.0" />
+    <PackageReference Include="Npgsql" Version="5.0.12" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Microsoft.AspNetCore.SpaServices.Extensions" />
     <None Remove="Microsoft.AspNetCore.SpaServices" />
+    <None Remove="NHibernate" />
+    <None Remove="FluentNHibernate" />
+    <None Remove="Npgsql" />
   </ItemGroup>
 </Project>
