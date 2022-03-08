@@ -14,28 +14,39 @@ export function SignUpForm(props) {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const submit = (e) => {
+    const submitSignUpForm = async e => {
         e.preventDefault();
+      try {
+        const body = { firstName, lastName, email, password, confirmPassword };
+        const response = fetch("http://localhost:5000/api/Users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        })
+        console.log(response);
 
+      } catch (err) {
+        console.error(err.message);
+      }
         
     }
 
   return(
     <BoxContainer>
-      <FormContainer>
+      <FormContainer onSubmit={submitSignUpForm}>
         <Marginer direction="vertical" margin="3em"></Marginer>
-        <Input type="text" placeholder="First Name" onChange={e => setFirstName(e.target.value)}/>
-        <Input type="text" placeholder="Last Name" onChange={e => setLastName(e.target.value)}/>
-        <Input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)}/>
-        <Input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
-        <Input type="password" placeholder="Confirm Password" onChange={e => setConfirmPassword(e.target.value)}/>
+        <Input type="text" placeholder="First Name" value={firstName} onChange={e => setFirstName(e.target.value)}/>
+        <Input type="text" placeholder="Last Name" value={lastName} onChange={e => setLastName(e.target.value)}/>
+        <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
+        <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}/>
+        <Input type="password" placeholder="Confirm Password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
         
 
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
         
         <Marginer direction="vertical" margin="1em" />
-        <SubmitButton type="submit" href="#" onClick={submit}>Sign up.</SubmitButton>
+        <SubmitButton type="submit" href="#" onClick={submitSignUpForm}>Sign up.</SubmitButton>
         <Marginer direction="vertical" margin=".5em"></Marginer>;
         <MutedLink href="#">Have an account? <BoldLink href="#" onClick={switchToSignin}>Sign in</BoldLink></MutedLink>
     </BoxContainer>
